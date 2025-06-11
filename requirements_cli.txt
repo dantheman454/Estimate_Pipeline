@@ -1,0 +1,27 @@
+# Blueprint Processor CLI - Simplified Dependencies (OpenCV-free)
+# Local command-line processing without web hosting requirements
+
+# Core PDF and image processing
+pdf2image>=1.16.3
+pillow>=10.0.0
+
+# SmolVLM AI model for electrical component detection (76.9% accuracy)
+transformers>=4.40.0
+torch>=2.0.0
+torchvision>=0.15.0
+accelerate>=0.21.0
+
+# Basic image processing with PIL only
+numpy>=1.21.0
+
+# OCR for floor plan title detection (optional, using simplified detection)
+# pytesseract>=0.3.10
+
+# Database for component pricing (built into Python)
+# sqlite3 - included with Python standard library
+
+# Command line argument parsing (built into Python) 
+# argparse - included with Python standard library
+
+# File path handling (built into Python)
+# pathlib - included with Python standard library
