@@ -1,9 +1,16 @@
-# Blueprint Processor CLI - Simplified Dependencies (OpenCV-free)
-# Local command-line processing without web hosting requirements
+# Blueprint Processor CLI - Enhanced Dependencies for Image Processing Pipeline
+# Local command-line processing supporting both PDF and direct image input
 
 # Core PDF and image processing
 pdf2image>=1.16.3
 pillow>=10.0.0
+
+# Advanced image processing for legend extraction and symbol detection
+opencv-python>=4.8.0
+numpy>=1.21.0
+
+# OCR for text-based legend detection
+pytesseract>=0.3.10
 
 # SmolVLM AI model for electrical component detection (76.9% accuracy)
 transformers>=4.40.0
@@ -11,11 +18,12 @@ torch>=2.0.0
 torchvision>=0.15.0
 accelerate>=0.21.0
 
-# Basic image processing with PIL only
-numpy>=1.21.0
+# Progress tracking with rich console output
+rich>=13.0.0
 
-# OCR for floor plan title detection (optional, using simplified detection)
-# pytesseract>=0.3.10
+# Additional image processing utilities
+scikit-image>=0.21.0
+matplotlib>=3.7.0
 
 # Database for component pricing (built into Python)
 # sqlite3 - included with Python standard library

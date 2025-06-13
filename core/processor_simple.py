@@ -65,35 +65,14 @@ def enhance_scanned_blueprint(image: Image.Image) -> Image.Image:
     return sharpened
 
 
+# DEPRECATED: This function will be removed in the image-based pipeline upgrade
+# Use process_blueprint_multipage for simple image conversion
 def process_blueprint_with_floor_plans(pdf_path: str) -> Dict:
-    """Convert multi-page PDF blueprint with simplified floor plan processing.
-    
-    Simplified version that treats each page as a single floor plan,
-    avoiding complex OCR-based floor plan detection.
-    
-    Args:
-        pdf_path (str): Absolute path to the PDF blueprint file to process.
-        
-    Returns:
-        Dict: Simplified structure for floor-by-floor processing:
-        {
-            'pages': [
-                {
-                    'page_number': int,
-                    'floor_plans': [
-                        {
-                            'title': str,
-                            'image': Image.Image,
-                            'confidence': float
-                        }
-                    ]
-                }
-            ],
-            'total_pages': int,
-            'total_floor_plans': int
-        }
     """
-    logger.info(f"Processing blueprint with simplified floor plan detection: {pdf_path}")
+    DEPRECATED: This PDF-specific floor plan detection will be removed.
+    Use the new image-based pipeline for processing.
+    """
+    logger.warning("process_blueprint_with_floor_plans is deprecated. Use image-based processing instead.")
     
     # Convert PDF to images
     images = process_blueprint_multipage(pdf_path)
@@ -110,7 +89,7 @@ def process_blueprint_with_floor_plans(pdf_path: str) -> Dict:
         floor_plan = {
             'title': f'FLOOR PLAN {i+1}',
             'image': image,
-            'confidence': 95.0  # High confidence since we're not doing complex detection
+            'confidence': 95.0
         }
         
         page_data = {
@@ -120,5 +99,4 @@ def process_blueprint_with_floor_plans(pdf_path: str) -> Dict:
         
         result['pages'].append(page_data)
     
-    logger.info(f"Simplified processing complete: {result['total_floor_plans']} floor plans")
     return result
